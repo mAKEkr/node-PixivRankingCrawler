@@ -1,12 +1,10 @@
 var request		= require('request'),
-	dateformat  = require('dateformat'),
+	dateformat  	= require('dateformat'),
 	cookie		= require('cookie'),
-	querystring = require('querystring'),
+	querystring 	= require('querystring'),
 	path		= require('path'),
-	url			= require('url'),
-	fs			= require('fs');
-
-	app 		= express();
+	url		= require('url'),
+	fs		= require('fs');
 
 var authencation = {};
 
@@ -71,10 +69,10 @@ if(typeof app_status.data[target_date] !== 'object') {
 				fs.stat(__dirname + '/images/' + filename, function(err, stats) {
 					if(err) {
 						request.get({
-									url: list[i].work.image_urls.large,
-									headers: {
-										'Referer': 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=' + list[i].work.id
-									}
+							url: list[i].work.image_urls.large,
+							headers: {
+								'Referer': 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=' + list[i].work.id
+							}
 						}).pipe(fs.createWriteStream(__dirname + '/images/' + filename));
 					}
 				});
